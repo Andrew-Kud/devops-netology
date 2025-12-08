@@ -17,3 +17,4 @@
 13. .terraformrc - конфигурационный файл
 14. terraform.rc - альтернативный конфиг-файл
 
+New line in fix branch
