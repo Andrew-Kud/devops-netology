@@ -16,4 +16,3 @@
 12. .terraform.tfstate.lock.info - временный файл блокировки при выполнении terraform apply
 13. .terraformrc - конфигурационный файл
 14. terraform.rc - альтернативный конфиг-файл
-
