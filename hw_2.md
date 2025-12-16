@@ -77,7 +77,9 @@ Enter на все вопросы
 2.
 ```
 cat > Vagrantfile << 'EOF'
-ISO = "bento/ubuntu-20.04"
+ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
+
+ISO = "bento/ubuntu-24.04"
 NET = "192.168.56."
 DOMAIN = ".netology"
 HOST_PREFIX = "server"
@@ -108,14 +110,12 @@ Vagrant.configure(2) do |config|
       end
       node.vm.provision "shell",  inline: <<-SHELL
         export DEBIAN_FRONTEND=noninteractive
-        # Add Docker's official GPG key:
         sudo apt-get update
         sudo apt-get install -y ca-certificates curl gnupg
         sudo install -m 0755 -d /etc/apt/keyrings
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
         sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-        # Add the repository to Apt sources:
         echo \
           "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
           $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
@@ -128,5 +128,11 @@ Vagrant.configure(2) do |config|
   end
 end
 EOF
+
+```
+
+3.
+```
+vagrant up
 ```
 
