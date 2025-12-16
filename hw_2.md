@@ -1,3 +1,5 @@
+Задача 1:
+
 1.
 ```
 sudo apt update && sudo apt upgrade -y
@@ -62,3 +64,7 @@ y
 rm -rf ~/yandex-cloud/
 ```
 
+---
+
+
+Задача 2:
