@@ -206,14 +206,14 @@ build {
 
   provisioner "shell" {
     inline = [
-      "sudo apt-get update",
+      "sudo apt-get update -y || true",
       "sudo apt-get install -y ca-certificates curl gnupg",
       "sudo install -m 0755 -d /etc/apt/keyrings",
       "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
       "sudo chmod a+r /etc/apt/keyrings/docker.gpg",
       "echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable' | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
-      "sudo apt-get update",
-      "sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin htop tmux"
+      "sudo apt-get update -y || true",
+      "sudo DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin htop tmux"
     ]
   }
 
@@ -232,11 +232,30 @@ packer validate mydebian.json.pkr.hcl
 ```
 packer build mydebian.json.pkr.hcl
 ```
+```
+yc compute image list
+```
 
+4.
+Тут нужно отредактировать, он создаёт самый дорогой диск, на 100%, без прерывания, а так же без внешнего бело ip.
+```
+yc compute instance create \
+  --name test-docker-vm \
+  --zone ru-central1-a \
+  --cores 2 \
+  --memory 2 \
+  --network-interface subnet-id=e9brivhqrj9ofqonb9d1 \
+  --create-boot-disk image-id=fd8v3mcmrrc319vv5noa,size=10
+```
+```
+yc compute instance get test-docker-vm
+```
 
-
-
-
+5.
+Подключаешься по ssh с указанием ключа:
+```
+ssh -i ~/.ssh/id_rsa debian@158.160.111.118
+```
 
 
 
