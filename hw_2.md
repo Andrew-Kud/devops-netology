@@ -160,3 +160,83 @@ exit
 ---
 
 Задание 3:
+1.
+```
+yc vpc network create --name my-network
+```
+```
+yc vpc subnet create \
+  --name my-subnet \
+  --network-name my-network \
+  --range 10.0.0.0/24 \
+  --zone ru-central1-a
+```
+```
+yc vpc subnet list
+```
+
+2.
+Замени token, folder_id и subnet_id(он в ID - 1 колонка):
+```
+cat > mydebian.json.pkr.hcl << 'EOF'
+packer {
+  required_plugins {
+    yandex = {
+      version = ">= 0.1.0"
+      source  = "github.com/hashicorp/yandex"
+    }
+  }
+}
+
+source "yandex" "debian_docker" {
+  disk_type           = "network-hdd"
+  folder_id           = "b1gddo3219q5fvaq98cu"
+  image_description   = "my custom debian with docker"
+  image_name          = "debian-11-docker"
+  source_image_family = "debian-11"
+  ssh_username        = "debian"
+  subnet_id           = "e9brivhqrj9ofqonb9d1"
+  token               = "xxxxx"
+  use_ipv4_nat        = true
+  zone                = "ru-central1-a"
+}
+
+build {
+  sources = ["source.yandex.debian_docker"]
+
+  provisioner "shell" {
+    inline = [
+      "apt-get update",
+      "apt-get install -y ca-certificates curl gnupg",
+      "install -m 0755 -d /etc/apt/keyrings",
+      "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
+      "chmod a+r /etc/apt/keyrings/docker.gpg",
+      "echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable' | tee /etc/apt/sources.list.d/docker.list > /dev/null",
+      "apt-get update",
+      "apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin htop tmux"
+    ]
+  }
+
+}
+EOF
+
+```
+```
+packer init mydebian.json.pkr.hcl
+```
+```
+packer validate mydebian.json.pkr.hcl
+```
+
+3.
+```
+packer build mydebian.json.pkr.hcl
+```
+
+
+
+
+
+
+
+
