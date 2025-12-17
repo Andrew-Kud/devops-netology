@@ -70,11 +70,17 @@ rm -rf ~/yandex-cloud/
 Задача 2:
 1.
 ```
+mkdir ~/src
+cd ~/src
+```
+
+2.
+```
 ssh-keygen -t ed25519
 ```
 Enter на все вопросы
 
-2.
+3.
 ```
 cat > Vagrantfile << 'EOF'
 ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
@@ -131,7 +137,7 @@ EOF
 
 ```
 
-3.
+4.
 Не забудь, VT-x и AMD-v должны быть включены.
 ```
 vagrant up
@@ -140,7 +146,7 @@ vagrant up
 vagrant status
 ```
 
-4.
+5.
 ```
 vagrant ssh
 ```
@@ -153,4 +159,4 @@ exit
 
 ---
 
-
+Задание 3:
