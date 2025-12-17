@@ -136,4 +136,21 @@ EOF
 ```
 vagrant up
 ```
+```
+vagrant status
+```
+
+4.
+```
+vagrant ssh
+```
+```
+docker version && docker compose version
+```
+```
+exit
+```
+
+---
+
 
