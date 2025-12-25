@@ -199,6 +199,7 @@ date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:
 ```
 curl http://127.0.0.1:8080
 ```
+<img width="1269" height="490" alt="1" src="https://github.com/user-attachments/assets/a132d4d3-7d06-424c-80f9-29df25d40a9d" />
 
 
 
@@ -341,6 +342,9 @@ docker rm -f custom-nginx-t2
 ```
 docker ps -a
 ```
+<img width="1271" height="1381" alt="2-1" src="https://github.com/user-attachments/assets/a92d6550-6688-4f79-a757-446b9b83d9a6" />
+
+<img width="1259" height="436" alt="2-2" src="https://github.com/user-attachments/assets/4d00ef6c-7b12-497e-ae8c-a069c884e517" />
 
 
 
@@ -431,6 +435,10 @@ cat host.txt
 ```
 exit
 ```
+<img width="1163" height="1395" alt="3-1" src="https://github.com/user-attachments/assets/697f5cc5-9691-40c0-bfd6-204a90b8b751" />
+
+<img width="631" height="204" alt="3-2" src="https://github.com/user-attachments/assets/b0720453-1802-411c-a82c-1a062724288d" />
+
 
 
 ---
@@ -592,3 +600,19 @@ docker compose down
 ```
 docker ps
 ```
+<img width="1278" height="1232" alt="4-1" src="https://github.com/user-attachments/assets/47fafd72-4ea1-4751-9bc5-e057a8ab3090" />
+
+<img width="1275" height="845" alt="4-2" src="https://github.com/user-attachments/assets/a26be494-7293-4128-9f14-71d5e026a2c8" />
+
+<img width="2559" height="1440" alt="4-3" src="https://github.com/user-attachments/assets/2bc8e099-3ba3-44ac-8757-6761ca197d4b" />
+
+<img width="1275" height="1050" alt="4-4" src="https://github.com/user-attachments/assets/81c0e518-246b-47a2-b05f-69630be36ed2" />
+
+<img width="2560" height="1434" alt="4-5" src="https://github.com/user-attachments/assets/1580d779-3521-4fa0-bbd5-24e8d82670d6" />
+
+<img width="1275" height="616" alt="4-6" src="https://github.com/user-attachments/assets/7e007e37-4569-4b6d-b27b-23c9f31d5c7f" />
+
+<img width="1274" height="259" alt="4-7" src="https://github.com/user-attachments/assets/72bdd9f9-7ac7-4a47-bf72-995ed0b7f57d" />
+
+
+---
