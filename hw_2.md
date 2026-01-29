@@ -1,4 +1,7 @@
-Задача 1:
+
+---
+
+### Задача 1:
 
 1.
 ```
@@ -64,10 +67,11 @@ y
 rm -rf ~/yandex-cloud/
 ```
 
+
 ---
 
 
-Задача 2:
+### Задача 2:
 1.
 ```
 mkdir ~/src
@@ -126,7 +130,7 @@ Vagrant.configure(2) do |config|
           "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
           $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
           sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        
+
         sudo apt-get update
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
       SHELL
@@ -157,9 +161,11 @@ docker version && docker compose version
 exit
 ```
 
+
 ---
 
-Задание 3:
+
+### Задание 3:
 1.
 ```
 yc vpc network create --name my-network
@@ -257,5 +263,5 @@ yc compute instance get test-docker-vm
 ssh -i ~/.ssh/id_rsa debian@158.160.111.118
 ```
 
-
-
+---
+---
